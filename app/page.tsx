@@ -60,7 +60,7 @@ export default function Home() {
         </h1>
 
 <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
-  Graduating Statistics student at the University of the Philippines
+  Graduating BS Statistics student at the University of the Philippines
   Diliman specializing in machine learning, statistical modeling, and
   applied analytics.
 </p>
