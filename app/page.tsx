@@ -50,55 +50,65 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-28">
-        <p className="mb-6 text-sm uppercase tracking-[0.35em] text-zinc-500">
-          Statistics × Data Science
-        </p>
+     <section className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 pt-24 pb-28 lg:flex-row lg:justify-between">
+  <div className="max-w-2xl">
+    <p className="mb-6 text-sm uppercase tracking-[0.35em] text-zinc-500">
+      Statistics × Data Science
+    </p>
 
-        <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-7xl">
-          Christian P. Villedo
-        </h1>
+    <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight md:text-7xl">
+      Christian P. Villedo
+    </h1>
 
-<p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
-  Graduating BS Statistics student at the University of the Philippines
-  Diliman specializing in machine learning, statistical modeling, and
-  applied analytics.
-</p>
+    <p className="mt-8 text-lg leading-8 text-zinc-300 md:text-xl">
+      Graduating BS Statistics student at the University of the Philippines
+      Diliman specializing in machine learning, statistical modeling, and
+      applied analytics.
+    </p>
 
-<p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-  I enjoy building data-driven solutions and translating complex
-  analyses into actionable insights through statistics, machine
-  learning, and research.
-</p>
+    <p className="mt-6 text-lg leading-8 text-zinc-400">
+      I enjoy building data-driven solutions and translating complex analyses
+      into actionable insights through statistics, machine learning, and
+      research.
+    </p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black"
-          >
-            View Projects
-          </a>
+    <div className="mt-10 flex flex-wrap gap-4">
+      <a
+        href="#projects"
+        className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black"
+      >
+        View Projects
+      </a>
 
-          <a
-            href="/RESUME-VILLEDO_CHRISTIAN.pdf"
-            className="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold text-white hover:border-zinc-400"
-          >
-            Download Resume
-          </a>
-        </div>
+      <a
+        href="/RESUME-VILLEDO_CHRISTIAN.pdf"
+        className="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold text-white hover:border-zinc-400"
+      >
+        Download Resume
+      </a>
+    </div>
 
-        <div className="mt-14 flex flex-wrap gap-3 text-sm text-zinc-400">
-          <span>R</span>
-          <span>•</span>
-          <span>Python</span>
-          <span>•</span>
-          <span>SQL</span>
-          <span>•</span>
-          <span>Machine Learning</span>
-          <span>•</span>
-          <span>Statistical Modeling</span>
-        </div>
-      </section>
+    <div className="mt-14 flex flex-wrap gap-3 text-sm text-zinc-400">
+      <span>R</span>
+      <span>•</span>
+      <span>Python</span>
+      <span>•</span>
+      <span>SQL</span>
+      <span>•</span>
+      <span>Machine Learning</span>
+      <span>•</span>
+      <span>Statistical Modeling</span>
+    </div>
+  </div>
+
+  <div className="flex justify-center lg:justify-end">
+    <img
+      src="/Christian.jpg"
+      alt="Christian Villedo"
+      className="h-72 w-72 rounded-full object-cover shadow-2xl md:h-96 md:w-96"
+    />
+  </div>
+</section>
 
       <section
         id="projects"
