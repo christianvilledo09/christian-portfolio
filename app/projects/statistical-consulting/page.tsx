@@ -76,6 +76,18 @@ from different fields.
   asking the right questions, and helping clients navigate decisions they may
   not be familiar with.
 </p>
+
+<p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
+  Beyond observing Sir Jan, I also learned a great deal from my fellow
+  interns. Whenever they conducted consultations, we were encouraged to
+  observe and reflect on how different consultants approached client
+  concerns. Some were particularly skilled at simplifying technical
+  concepts, while others excelled at asking questions that uncovered
+  important details about a study. Seeing multiple consulting styles helped
+  me realize that effective consulting is not about following a script—it is
+  about adapting your approach to the needs of the client while maintaining
+  sound statistical reasoning.
+</p>
           </section>
 
           <section>
@@ -142,42 +154,75 @@ from different fields.
 </p>
           </section>
 
-          <section>
-            <h2 className="mb-4 text-3xl font-semibold">
-              Applied Research Projects
-            </h2>
-            <p className="max-w-4xl text-lg leading-8 text-zinc-300">
-  Throughout the internship, I worked on several applied research projects
-  involving survey data, educational research, and social science studies.
-  These projects required a combination of data preparation, reliability
-  analysis, descriptive statistics, inferential analysis, and interpretation
-  of results for clients.
-</p>
+<section>
+  <h2 className="mb-4 text-3xl font-semibold">
+    Learning from Mentors and Fellow Consultants
+  </h2>
 
-<p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
-  One project that I particularly enjoyed involved a study on Spanish Foreign
-  Language Teaching (SPFL) in the Philippines. The project aimed to assess the
-  current situation of Spanish language instruction and evaluate the
-  proficiency levels of Spanish language teachers.
-</p>
+  <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+    Throughout the internship, I worked on various applied research projects
+    involving survey data, educational research, and social science studies.
+    These projects exposed me to different stages of the consulting process,
+    from data preparation and preliminary analysis to interpreting results
+    and communicating findings to clients.
+  </p>
 
-<p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
-  My responsibilities included preparing and processing survey data,
-  conducting reliability analyses for Likert-scale instruments, generating
-  descriptive summaries, and performing inferential analyses based on the
-  client's research objectives. Beyond running the analyses themselves, I also
-  learned the importance of translating statistical results into findings that
-  clients could easily understand and use in their research.
-</p>
+  <p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
+    One aspect of the internship that I particularly appreciated was the
+    opportunity to observe actual consultation sessions. Aside from
+    consultations led by our head consultant, Sir Jan Leonin, I also learned
+    a great deal from observing my fellow interns conduct their own
+    consultations. Since each client came from a different discipline and
+    research background, every session approached statistical problems in
+    slightly different ways.
+  </p>
 
-<p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
-  These projects helped me appreciate that statistical analysis is not simply
-  about producing outputs. The real challenge is connecting those outputs back
-  to meaningful research questions and helping clients make informed decisions
-  from the evidence available.
-</p>
-          </section>
+  <p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
+    Watching these consultations showed me that there is rarely a single
+    "correct" way to guide a client. Different consultants may ask different
+    questions, focus on different aspects of the study, or explain concepts
+    using different approaches. Observing these interactions helped me
+    understand how experienced consultants think through research problems
+    and adapt their communication style depending on the client's level of
+    statistical knowledge.
+  </p>
 
+  <p className="mt-6 max-w-4xl text-lg leading-8 text-zinc-300">
+    These experiences also reinforced an important lesson: statistical
+    consulting begins long before any analysis is performed. Understanding
+    the research objectives, clarifying variables, identifying limitations,
+    and discussing possible analytical approaches are often just as
+    important as running statistical tests. Through both direct client work
+    and observation, I gained a deeper appreciation for the role of
+    communication, critical thinking, and subject-matter understanding in
+    the consulting process.
+  </p>
+
+  <div className="mt-10 grid gap-6 md:grid-cols-2">
+    <figure>
+      <img
+        src="/projects/statistical-consulting/internship-graduation-group.jpg"
+        alt="Internship completion ceremony with fellow interns and consultants"
+        className="w-full rounded-xl border border-zinc-800"
+      />
+      <figcaption className="mt-2 text-sm text-zinc-400">
+        Internship completion ceremony with fellow interns at Altabay Solutions.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="/projects/statistical-consulting/internship-certificate.jpg"
+        alt="Receiving internship certificate from Sir Jan Leonin"
+        className="w-full rounded-xl border border-zinc-800"
+      />
+      <figcaption className="mt-2 text-sm text-zinc-400">
+        Receiving my internship certificate from Sir Jan Leonin at the
+        conclusion of the statistical consulting internship program.
+      </figcaption>
+    </figure>
+  </div>
+</section>
           <section>
             <h2 className="mb-4 text-3xl font-semibold">
               UP Variates Thesis Assistance Program
