@@ -14,21 +14,27 @@ const pipelineSteps = [
 const results = [
   {
     model: "Random Forest",
-    f1: "0.843",
-    auc: "0.915",
-    note: "Highest F1-score",
+    accuracy: "0.8381",
+    sensitivity: "0.8721",
+    specificity: "0.8040",
+    f1: "0.8433",
+    auc: "0.9149",
   },
   {
     model: "LASSO Logistic Regression",
-    f1: "0.839",
-    auc: "0.918",
-    note: "Highest AUC",
+    accuracy: "0.8370",
+    sensitivity: "0.8477",
+    specificity: "0.8263",
+    f1: "0.8387",
+    auc: "0.9175",
   },
   {
     model: "LDA",
-    f1: "0.805",
-    auc: "0.871",
-    note: "Baseline comparison",
+    accuracy: "0.7953",
+    sensitivity: "0.8455",
+    specificity: "0.7452",
+    f1: "0.8051",
+    auc: "0.8712",
   },
 ];
 
@@ -120,7 +126,8 @@ export default function HateSpeechPage() {
               text. I first cleaned and standardized the tweets by removing
               anonymized usernames, URLs, unnecessary characters, and excess
               whitespace. I also converted the text to lowercase so that the same
-              word would not be treated differently just because of capitalization.
+              word would not be treated differently just because of
+              capitalization.
             </p>
 
             <p>
@@ -138,6 +145,21 @@ export default function HateSpeechPage() {
               structural features like word count, character count,
               capitalization ratio, and code-switching ratio. The final matrix
               contained 2,049 predictors per tweet.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <img
+              src="/tfidf-feature-matrix.png"
+              alt="TF-IDF feature matrix with handcrafted features"
+              className="w-full rounded-2xl border border-zinc-800"
+            />
+
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              Preview of the final feature matrix. Each tweet was represented by
+              TF-IDF word features together with handcrafted indicators such as
+              red-tagging, profanity, slur flags, capitalization ratio, word
+              count, character count, and code-switching measures.
             </p>
           </div>
 
@@ -202,38 +224,156 @@ export default function HateSpeechPage() {
               Main Result
             </p>
 
-            <h3 className="text-3xl font-bold">Random Forest and LASSO were close.</h3>
+            <h3 className="text-3xl font-bold">
+              Random Forest and LASSO were close, but they had different
+              strengths.
+            </h3>
 
-            <p className="mt-4 max-w-3xl leading-8 text-zinc-400">
-              Random Forest achieved the highest F1-score, while LASSO Logistic
-              Regression achieved the highest AUC. This showed that both models
-              performed strongly, but they emphasized slightly different aspects
-              of classification performance.
+            <p className="mt-4 max-w-4xl leading-8 text-zinc-400">
+              LASSO Logistic Regression achieved the highest AUC and
+              specificity, but Random Forest achieved the highest F1-score and
+              sensitivity. Since this task involves detecting harmful content, I
+              considered sensitivity important because false negatives mean
+              actual hate speech remains undetected. This made Random Forest the
+              more practical model to highlight.
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-zinc-800">
-            <table className="w-full">
-              <thead className="border-b border-zinc-800">
-                <tr>
-                  <th className="p-4 text-left">Model</th>
-                  <th className="p-4 text-left">F1 Score</th>
-                  <th className="p-4 text-left">AUC</th>
-                  <th className="p-4 text-left">Note</th>
-                </tr>
-              </thead>
+          <div className="mb-10">
+            <img
+              src="/model-comparison.png"
+              alt="Model performance comparison"
+              className="w-full rounded-2xl border border-zinc-800"
+            />
 
-              <tbody>
-                {results.map((result) => (
-                  <tr key={result.model} className="border-b border-zinc-800 last:border-b-0">
-                    <td className="p-4">{result.model}</td>
-                    <td className="p-4">{result.f1}</td>
-                    <td className="p-4">{result.auc}</td>
-                    <td className="p-4 text-zinc-400">{result.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              Comparison of classification performance across Random Forest,
+              LASSO Logistic Regression, and Linear Discriminant Analysis.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className="mb-8 text-3xl font-semibold">
+            Which Features Were Most Important?
+          </h2>
+
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+            Random Forest allowed me to inspect which variables contributed most
+            to classification. Political names, accusation-related terms, and
+            contextual indicators appeared among the strongest predictors. This
+            reinforced the observation that hate speech in this dataset was
+            often directed toward specific public figures through accusations,
+            insults, and politically charged language.
+          </p>
+
+          <div className="mt-8">
+            <img
+              src="/random-forest-feature-importance.png"
+              alt="Random Forest feature importance"
+              className="w-full max-w-2xl rounded-3xl border border-zinc-800"
+            />
+
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              Top features identified by the Random Forest model based on
+              impurity-based feature importance scores.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className="mb-8 text-3xl font-semibold">
+            Word Usage in Hate and Non-Hate Tweets
+          </h2>
+
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+            To better understand the model outputs, I compared how often
+            selected words appeared in hate speech and non-hate speech tweets.
+            Some terms were disproportionately associated with hate speech,
+            particularly accusation terms and political attacks. Others appeared
+            much more frequently in non-hate tweets, reflecting campaign
+            messaging and ordinary political discussion.
+          </p>
+
+          <div className="mt-8">
+            <img
+              src="/word-presence-rates.png"
+              alt="Word presence rates by class"
+              className="w-full max-w-2xl rounded-3xl border border-zinc-800"
+            />
+
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              Presence rates of politically salient terms across hate speech and
+              non-hate speech tweets.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className="mb-8 text-3xl font-semibold">
+            Frequent Phrases in Hate and Non-Hate Tweets
+          </h2>
+
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+            Looking at bigrams revealed meaningful differences between the two
+            classes. Hate speech tweets were often characterized by
+            accusation-driven phrases and direct attacks, while non-hate tweets
+            tended to contain campaign-related language, endorsements, and
+            general political discussion.
+          </p>
+
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <div>
+              <img
+                src="/hate-bigrams.png"
+                alt="Top hate speech bigrams"
+                className="h-[700px] w-full object-contain rounded-3xl border border-zinc-800 bg-white"
+              />
+
+              <p className="mt-4 text-center text-sm text-zinc-500">
+                Most frequent bigrams among hate speech tweets.
+              </p>
+            </div>
+
+            <div>
+              <img
+                src="/nonhate-bigrams.png"
+                alt="Top non-hate speech bigrams"
+               className="h-[700px] w-full object-contain rounded-3xl border border-zinc-800 bg-white"
+              />
+
+              <p className="mt-4 text-center text-sm text-zinc-500">
+                Most frequent bigrams among non-hate speech tweets.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-20">
+          <h2 className="mb-8 text-3xl font-semibold">
+            Handcrafted and Structural Features
+          </h2>
+
+          <p className="max-w-4xl text-lg leading-8 text-zinc-300">
+            Beyond TF-IDF terms, I engineered several domain-specific
+            indicators. Profanity, red-tagging references, and slur-related
+            language occurred more frequently in hate speech tweets. Structural
+            characteristics such as tweet length, capitalization, and
+            code-switching behavior were also included to capture writing
+            patterns beyond vocabulary alone.
+          </p>
+
+          <div className="mt-8">
+            <img
+              src="/handcrafted-feature-rates.png"
+              alt="Handcrafted and structural feature rates"
+              className="w-full max-w-3xl rounded-3xl border border-zinc-800"
+            />
+
+            <p className="mt-4 text-sm leading-7 text-zinc-500">
+              Comparison of handcrafted and structural features across hate and
+              non-hate speech tweets.
+            </p>
           </div>
         </section>
 
@@ -244,6 +384,11 @@ export default function HateSpeechPage() {
             <li>
               • Building the feature matrix carefully can matter as much as the
               choice of classifier.
+            </li>
+
+            <li>
+              • Sensitivity matters in hate speech detection because missing
+              actual hate speech can leave harmful content undetected.
             </li>
 
             <li>
